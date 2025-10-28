@@ -1,0 +1,41 @@
+.banner {
+    width: 100%;
+    /*border-radius: 20px;*/
+    aspect-ratio: 11.58 / 4;
+    position: relative;
+    overflow: hidden;  
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);  
+}
+
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+    display: block;
+}
+
+.banner::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    pointer-events: none;
+}
+
+.main-content {
+    background-color: #474646; 
+    color: #fff; 
+    padding: 20px;
+    text-align: center;
+    flex: 1; 
+    margin: 0; 
+}
+
+@media (max-width: 768px) {
+    .banner-img {
+        max-height: 250px;
+    }
+}

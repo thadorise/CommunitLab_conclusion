@@ -1,0 +1,297 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/*header*/
+.header {
+    padding: 10px 20px;
+    background-color: #5a5959;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*Menu Nav*/
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    display: inline-block;
+    position: relative;
+}
+
+.menu ul a {
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    color: rgb(255, 255, 255);
+}
+
+/*SubMenu*/
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    /* Posiciona abaixo do menu principal */
+    left: 0;
+    background-color: #5a5959;
+    /* Exemplo de cor */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Sombra */
+}
+
+.has-submenu:hover .submenu {
+    display: block;
+    /* Exibe o submenu ao passar o mouse */
+}
+
+.menu-items li .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #5a5959;
+    color: #fff;
+    border-radius: 8px;
+    list-style: none;
+    padding: 5px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+
+.menu-items li:hover > .submenu {
+    display: block;
+}
+
+/*Barra de pesquisa*/
+.search-bar {
+    display: flex;
+    align-items: center;
+    max-width: 300px;
+    margin: 0 auto;
+    flex: 1;
+    justify-content: center;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+    font-size: 14px;
+}
+
+.search-bar button {
+    padding: 6px 10px;
+    border: none;
+    background-color: #5a5959;
+    color: #fff;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #6b6969;
+}
+
+.user-menu {
+    position: relative;
+    display: inline-block;
+    margin-left: auto;
+}
+
+/* Transição suave e hover aprimorado*/
+.user-menu .submenu {
+    position: absolute;
+    top: 45px; 
+    right: 0;
+    background-color: #474646;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    min-width: 220px;
+    padding: 10px 0;
+    z-index: 1000;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+/* Submenu visível quando hover */
+.user-menu:hover .submenu,
+.user-menu .submenu:hover {
+    opacity: 1;
+    visibility: visible;
+}
+
+.user-menu .submenu li a,
+.user-menu .submenu li button {
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.user-menu .submenu li:hover {
+    background-color: #474646;
+}
+
+/* Botão login */
+.login-btn {
+    width: 100%;
+    padding: 8px 0;
+    border: none;
+    background-color: #474646;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #474646;
+}
+
+/* Botão login dentro do submenu do usuário */
+.user-menu .submenu .login-btn {
+    width: calc(100% - 40px);
+    margin: 5px 20px;
+    background-color: #fff;
+    color: #333;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.user-menu .submenu .login-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* Switch toggle */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 20px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: 0.3s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px; width: 16px;
+    left: 2px; bottom: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+input:checked + .slider {
+    background-color: #fff;
+}
+
+input:checked + .slider:before {
+    transform: translateX(16px);
+}
+
+/* Avatar circular estilo Google */
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    border: 2px solid #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efeito hover */
+.user-avatar:hover {
+    transform: scale(1.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Imagem dentro do avatar */
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Avatar sem foto — mostra inicial */
+.user-avatar.sem-foto {
+    background-color: #e5e5e5;
+}
+
+.user-avatar.sem-foto .user-inicial {
+    font-weight: bold;
+    font-size: 18px;
+    color: #555;
+    text-transform: uppercase;
+    user-select: none;
+}
+.rodape {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 2.5rem;
+
+}
+
+.rodape__credito {
+    color: rgb(255, 255, 255);
+    font-size: 1.4rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400; 
+}
+
+
+/*responsividade*/
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu-items {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .search-bar {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+}
